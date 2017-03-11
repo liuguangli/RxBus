@@ -76,6 +76,7 @@ RxBus provides chainProcess method to wrap a process, and the results will be se
         */
 
        @RegisterBus
+
        public void onUser(User user) {
 
            userView.showUser(user);
