@@ -4,7 +4,7 @@
 [中文文档->](https://github.com/liuguangli/RxBus/blob/master/README_CH.md)
 
 RxBus is a publish/subscribe event bus optimized for Android, like EventBus.
-RxBus Based on Rx Java,it has a simple event bus as EventBus, but also the rich features of Rx Java.
+RxBus Based on RxJava,it has a simple event bus as EventBus, but also the rich features of Rx Java.
 
 ![](https://github.com/liuguangli/RxBus/blob/master/RxBus.png)
 
