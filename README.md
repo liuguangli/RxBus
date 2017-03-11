@@ -74,10 +74,14 @@ RxBus provides chainProcess method to wrap a process, and the results will be se
         * @RegisterBus mark this method to receive data in UI thread
         * @param user
         */
+
        @RegisterBus
        public void onUser(User user) {
+
            userView.showUser(user);
+
        }
+
 
 # Gradle independence
 
