@@ -11,31 +11,32 @@ RxBus 是一个发布/订阅模式的事件总线，用法和 EventBus 一样简
 
 1. 定义 EventData:
 
-    public static class EventData { /* Additional fields if needed */ }
+         public static class EventData { /* Additional fields if needed */ }
 
 
 2. 注解定义订阅者的回调方法，回调方法回在 UI 线程中执行:
 
-     @RegisterBus
-    public void onMessageEvent(MessageEvent event) {/* Do something */};
+         @RegisterBus
+         public void onMessageEvent(MessageEvent event) {/* Do something */};
 
 3. 注册／解注册。 观察者需要被注册到 RxBus，其 @RegisterBus 标记的方法才会被扫描到，在不需要的地方记得解注册。
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        initView();
-        // register to RxBus
-        RxBus.getInstance().register(this);
-    }
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+          super.onCreate(savedInstanceState);
+          setContentView(R.layout.activity_main);
+          initView();
+          // register to RxBus
+          RxBus.getInstance().register(this);
+        }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        // unregister from RxBus
-        RxBus.getInstance().unRegister(this);
-    }
+        @Override
+        protected void onDestroy() {
+            super.onDestroy();
+            // unregister from RxBus
+            RxBus.getInstance().unRegister(this);
+        }
+
 3. 发送数据:
 
 
