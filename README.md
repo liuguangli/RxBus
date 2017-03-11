@@ -37,13 +37,14 @@ RxBus Based on RxJava,it has a simple event bus as EventBus, but also the rich f
         // unregister from RxBus
         RxBus.getInstance().unRegister(this);
     }
+
 3.Post events:
 
 
-      // send data in thread
-       Data data = new Data();
-       Data.setContent("hello world");
-       RxBus.getInstance().send(data);
+        // send data in thread
+         Data data = new Data();
+         Data.setContent("hello world");
+         RxBus.getInstance().send(data);
 
 
 # Advantages other than EventBus
@@ -70,18 +71,18 @@ RxBus provides chainProcess method to wrap a process, and the results will be se
 
 2. then in UI thread:
 
-       /**
-        * @RegisterBus mark this method to receive data in UI thread
-        * @param user
-        */
+         /**
+          * @RegisterBus mark this method to receive data in UI thread
+          * @param user
+          */
 
-       @RegisterBus
+         @RegisterBus
 
-       public void onUser(User user) {
+         public void onUser(User user) {
 
-           userView.showUser(user);
+             userView.showUser(user);
 
-       }
+         }
 
 
 # Gradle independence

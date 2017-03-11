@@ -73,18 +73,18 @@ RxBus 提供 chainProcess 方法来包装一个处理过程, 处理结果会自�
 
 2. 然后在 P 层接收:
 
-         /**
-         * @RegisterBus mark this method to receive data in UI thread
-         * @param user
-         */
+           /**
+           * @RegisterBus mark this method to receive data in UI thread
+           * @param user
+           */
 
-         @RegisterBus
+           @RegisterBus
 
-         public void onUser(User user) {
+           public void onUser(User user) {
 
-           userView.showUser(user);
+             userView.showUser(user);
 
-         }
+           }
 
 
 # Gradle independence
