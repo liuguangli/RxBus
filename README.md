@@ -1,4 +1,5 @@
 # RxBus
+[![](https://jitpack.io/v/liuguangli/RxBus.svg)](https://jitpack.io/#liuguangli/RxBus)
 RxBus is a publish/subscribe event bus optimized for Android, like EventBus.
 RxBus Based on Rx Java,it has a simple event bus as EventBus, but also the rich features of Rx Java.
 
