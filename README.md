@@ -1,8 +1,9 @@
 # RxBus
 [![](https://jitpack.io/v/liuguangli/RxBus.svg)](https://jitpack.io/#liuguangli/RxBus)
+
 RxBus is a publish/subscribe event bus optimized for Android, like EventBus.
 RxBus Based on Rx Java,it has a simple event bus as EventBus, but also the rich features of Rx Java.
-
+[中文文档->](https://github.com/liuguangli/RxBus/blob/master/README_CH.md)
 ![](https://github.com/liuguangli/RxBus/blob/master/RxBus.png)
 
 # how to use
@@ -45,7 +46,7 @@ RxBus Based on Rx Java,it has a simple event bus as EventBus, but also the rich 
 
 # Advantages other than EventBus
 
-RxBus provides chainProcess method to package a process, and the results will be sent to the subscriber.
+RxBus provides chainProcess method to wrap a process, and the results will be sent to the subscriber.
 
 
 ![](https://github.com/liuguangli/RxBus/blob/master/RxBusChain.png)
