@@ -8,7 +8,7 @@ RxBus Based on RxJava,it has a simple event bus as EventBus, but also the rich f
 
 ![](https://github.com/liuguangli/RxBus/blob/master/RxBus.png)
 
-# how to use
+# How to use
 
 1.Define EventData:
 
@@ -69,7 +69,7 @@ RxBus provides chainProcess method to wrap a process, and the results will be se
         });
 
 
-2. then in UI thread:
+2. Then in UI thread:
 
            /**
             * @RegisterBus mark this method to receive data in UI thread
