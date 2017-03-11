@@ -40,10 +40,13 @@ RxBus 是一个发布/订阅模式的事件总线，用法和 EventBus 一样简
 3. 发送数据:
 
 
-      // send data in thread
-       Data data = new Data();
-       Data.setContent("hello world");
-       RxBus.getInstance().send(data);
+        // send data in thread
+
+        Data data = new Data();
+
+        Data.setContent("hello world");
+
+        RxBus.getInstance().send(data);
 
 
 # 比 EventBus 多的优点
@@ -74,10 +77,15 @@ RxBus 提供 chainProcess 方法来包装一个处理过程, 处理结果会自�
         * @RegisterBus mark this method to receive data in UI thread
         * @param user
         */
+
        @RegisterBus
+
        public void onUser(User user) {
+
            userView.showUser(user);
+
        }
+
 
 # Gradle independence
 
