@@ -18,7 +18,7 @@ RxBus Based on Rx Java,it has a simple event bus as EventBus, but also the rich 
 2.Prepare subscribers: Declare and annotate your subscribing method, it will called in UI thread:
 
      @RegisterBus
-    public void onMessageEvent(MessageEvent event) {/* Do something */};
+    public void onDataEvent(onDataEvent data) {/* Do something */};
 
 3.Register and unregister your subscriber. For example on Android, activities and fragments should usually register according to their life cycle:
 
