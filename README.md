@@ -46,8 +46,10 @@ RxBus Based on Rx Java,it has a simple event bus as EventBus, but also the rich 
 
 RxBus provides chainProcess method to package a process, and the results will be sent to the subscriber.
 
+
 ![](https://github.com/liuguangli/RxBus/blob/master/RxBusChain.png)
 
+1. Chain process in model layer
 
         RxBus.getInstance().chainProcess(new Func1() {
             @Override
@@ -62,7 +64,7 @@ RxBus provides chainProcess method to package a process, and the results will be
         });
 
 
- then in UI thread:
+2. then in UI thread:
 
        /**
         * @RegisterBus mark this method to receive data in UI thread
