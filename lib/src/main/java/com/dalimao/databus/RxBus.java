@@ -11,6 +11,9 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
+
 
 /**
  * Created by liuguangli on 17/3/5.
@@ -18,10 +21,10 @@ import rx.schedulers.Schedulers;
 
 public class RxBus implements IDataBus {
     private static volatile RxBus instance;
-    private Map<Object, Object> subscribers;
-    private RxBus() {
-        subscribers = new HashMap<>();
+    private Set<Object> subscribers;
 
+    private RxBus() {
+        subscribers = new CopyOnWriteArraySet<>();
     }
 
     public void chainProcess(Func1 func) {
@@ -32,12 +35,13 @@ public class RxBus implements IDataBus {
                 .subscribe(new Action1<Object>() {
                     @Override
                     public void call(Object data) {
-                        for (Object s : subscribers.keySet()) {
+                        for (Object s : subscribers) {
                             //s.onNext(o);
                             //扫描注解
 
                             callMethodByAnnotiation(s, data);
                         }
+
                     }
                 });
     }
@@ -70,23 +74,25 @@ public class RxBus implements IDataBus {
 
                     @Override
                     public void onNext(Object o) {
-                        System.out.println("onNext in tread:" + Thread.currentThread().getName());
-                        for (Object s : subscribers.keySet()) {
-                            //扫描注解
-                            callMethodByAnnotiation(s, data);
+                        synchronized (RxBus.class) {
+                            for (Object s : subscribers) {
+                                //扫描注解
+                                callMethodByAnnotiation(s, data);
+                            }
                         }
+
                     }
                 });
     }
 
     @Override
     public synchronized void register(Object subscriber) {
-        subscribers.put(subscriber, subscriber);
+        subscribers.add(subscriber);
     }
 
     @Override
-    public synchronized void unRegister(Object sucriber) {
-        subscribers.remove(sucriber);
+    public synchronized void unRegister(Object subscriber) {
+        subscribers.remove(subscriber);
     }
 
     public static synchronized RxBus getInstance() {
@@ -103,9 +109,6 @@ public class RxBus implements IDataBus {
     }
 
     private void callMethodByAnnotiation(Object target, Object data) {
-        if (data == null) {
-            return;
-        }
         Method[] methodArray = target.getClass().getDeclaredMethods();
         for (int i = 0; i < methodArray.length; i++) {
             try {
@@ -126,3 +129,4 @@ public class RxBus implements IDataBus {
     }
 
 }
+
